@@ -10,12 +10,12 @@ from components.bot_telebot import bot
 async def main() -> None:
     send_msg_tg('The start of a program')
     try:
-        driver1, driver2 = init()
+        driver1, driver2 = await init()
         await asyncio.gather(
             login('89381414996', '1fJskl23', driver1),
             login('89880267156', 'fSDf123aAsdq', driver2),
         )
-        main_send(driver1, driver2)
+        await main_send(driver1, driver2)
         send_msg_tg('Done without errors')
     except Exception as e:
         send_msg_tg(e)
@@ -28,4 +28,5 @@ async def main() -> None:
 
 if __name__ == '__main__':
     asyncio.run(main())
-    bot.infinity_polling()
+
+bot.infinity_polling()

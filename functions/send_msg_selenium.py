@@ -9,8 +9,8 @@ async def send_message_selenium(user: str, driver: WebDriver, text: str) -> None
     try:
         driver.get(user)
         await asyncio.sleep(2)
-        input_field = driver.find_element(By.XPATH, '//msg-input[@class="js-empty"]')
-        send_button = driver.find_element(By.XPATH, '//button[@class="primary-okmsg"]')
+        input_field: WebDriver = driver.find_element(By.XPATH, '//msg-input[@class="js-empty"]')
+        send_button: WebDriver = driver.find_element(By.XPATH, '//button[@class="primary-okmsg"]')
         input_field.send_keys(text)
         await asyncio.sleep(1)
         send_button.click()
