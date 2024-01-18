@@ -10,3 +10,5 @@ venv/
 # Ignore components folder
 components/
 
+# Ignore used data folder
+/data

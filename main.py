@@ -4,6 +4,7 @@ from functions.login_account import login
 from functions.initialization import init
 from functions.users_parsing import parse_users
 from functions.send_tg_msg import send_msg_tg
+from components.bot_telebot import bot
 
 async def main() -> None:
     try:
@@ -11,7 +12,6 @@ async def main() -> None:
         await asyncio.gather(
             login('1', '2', driver1),
             login('1', '2', driver2),
-            login('1', '2', driver3),
         )
     except Exception as e:
         send_msg_tg(e)
