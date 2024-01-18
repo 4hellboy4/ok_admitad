@@ -7,8 +7,6 @@ from functions.send_tg_msg import send_msg_tg
 
 async def send_message_selenium(user: str, driver: WebDriver, text: str) -> None:
     try:
-        f = await aiofiles.open('../data/')
-        message: str = ''.join([string for string in f.readlines()])
         driver.get(user)
         await asyncio.sleep(2)
         input_field = driver.find_element(By.XPATH, '//msg-input[@class="js-empty"]')
@@ -16,5 +14,6 @@ async def send_message_selenium(user: str, driver: WebDriver, text: str) -> None
         input_field.send_keys(text)
         await asyncio.sleep(1)
         send_button.click()
+        send_msg_tg(f'Message was sent to {user}')
     except Exception as e:
         send_msg_tg(e)

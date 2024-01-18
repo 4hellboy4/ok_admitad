@@ -14,5 +14,4 @@ def init() -> webdriver:
     service: Service = Service(ChromeDriverManager().install())
     driver1: webdriver = WebDriver(options=options, service=service)
     driver2: webdriver = WebDriver(options=options, service=service)
-    driver3: webdriver = WebDriver(options=options, service=service)
-    return driver1, driver2, driver3
+    return driver1, driver2
