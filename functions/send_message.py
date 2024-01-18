@@ -8,14 +8,14 @@ from functions.get_msg_text import get_msg_text
 from functions.send_tg_msg import send_msg_tg
 from functions.send_msg_selenium import send_message_selenium
 
-# Use a data class or a namedtuple for better organization
+
 class Counters:
     def __init__(self):
         self.counter1 = 0
         self.counter2 = 10
         self.counter3 = 20
 
-# Avoid using global variables, create an instance of Counters
+
 counters = Counters()
 
 async def init_msg() -> str:
@@ -24,10 +24,12 @@ async def init_msg() -> str:
 async def init_counters() -> Counters:
     return Counters()
 
+
 async def increase_counters() -> None:
     counters.counter1 += 30
     counters.counter2 += 30
     counters.counter3 += 30
+
 
 async def send_message(start: int, links: list, driver: WebDriver, text: str) -> None:
     try:
@@ -41,6 +43,7 @@ async def send_message(start: int, links: list, driver: WebDriver, text: str) ->
     except Exception as e:
         send_msg_tg(e)
 
+
 async def func(links: list, driver1: WebDriver, driver2: WebDriver, text: str) -> None:
     print('started fir')
     await asyncio.gather(
@@ -48,6 +51,7 @@ async def func(links: list, driver1: WebDriver, driver2: WebDriver, text: str) -
         send_message(counters.counter2, links, driver2, text),
     )
     await increase_counters()
+
 
 async def main_send(driver1: WebDriver, driver2: WebDriver) -> None:
     # Use the returned values instead of global variables
