@@ -6,6 +6,8 @@ import telebot
 from selenium.webdriver.chrome.webdriver import WebDriver
 from functions.get_messages import init_list
 from functions.get_msg_text import get_msg_text
+from functions.send_tg_msg import send_msg_tg
+from functions.send_msg_selenium import send_message_selenium
 
 global counter1, counter2, counter3
 global text
