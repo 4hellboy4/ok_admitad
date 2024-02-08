@@ -1,7 +1,7 @@
 import aiofiles
 
 
-async def get_msg_text() -> str:
-    f = await aiofiles.open('../data/')
-    message: str = ''.join([string for string in f.readlines()])
-    return message
+async def get_msg_text() -> list[str]:
+    async with aiofiles.open('data/msg.txt') as f:
+        message: list[str] = [string.strip() for string in await f.readlines()]
+        return message

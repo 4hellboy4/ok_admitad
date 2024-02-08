@@ -12,3 +12,6 @@ components/
 
 # Ignore used data folder
 /data
+
+#Ignore all classes
+/classes
